@@ -1,5 +1,6 @@
 import { useState } from "react"
 import {
+  Alert,
   View,
   ScrollView,
   Text,
@@ -11,6 +12,7 @@ import { Checkbox } from "../../components/Checkbox"
 import { Feather } from "@expo/vector-icons"
 
 import colors from "tailwindcss/colors"
+import { api } from "../../lib/axios"
 
 const availableWeekDays = [
   "Domingo",
@@ -23,6 +25,7 @@ const availableWeekDays = [
 ]
 
 export function New() {
+  const [title, setTitle] = useState("")
   const [weekDays, setWeekDays] = useState<number[]>([])
 
   function handleToggleWeekDay(weekDayIndex: number) {
@@ -32,6 +35,27 @@ export function New() {
       )
     } else {
       setWeekDays((prevState) => [...prevState, weekDayIndex])
+    }
+  }
+
+  async function handleCreateNewHabit() {
+    try {
+      if (!title.trim() || weekDays.length == 0) {
+        Alert.alert(
+          "Novo hábito",
+          "Informe o nome do hábito e escolha a recorrência"
+        )
+      }
+
+      await api.post("/habits", { title, weekDays })
+
+      setTitle("")
+      setWeekDays([])
+
+      Alert.alert("Novo hábito", "Hábito criado com sucesso!")
+    } catch (error) {
+      Alert.alert("Ops", "Não foi possível criar o novo hábito")
+      console.log(error)
     }
   }
 
@@ -55,6 +79,8 @@ export function New() {
           placeholder="Exercícios, dormir bem, etc..."
           className="h-12 pl-4 rounded-lg mt-3 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-green-600"
           placeholderTextColor={colors.zinc[400]}
+          onChangeText={setTitle}
+          value={title}
         />
 
         <Text className="font-semibold mt-4 mb-3 text-white text-base">
@@ -73,6 +99,7 @@ export function New() {
         <TouchableOpacity
           className="w-full h-14 flex-row items-center justify-center bg-green-600 rounded-md mt-6"
           activeOpacity={0.7}
+          onPress={handleCreateNewHabit}
         >
           <Feather name="check" size={20} color={colors.white} />
           <Text className="font-semibold text-base text-white ml-2">
