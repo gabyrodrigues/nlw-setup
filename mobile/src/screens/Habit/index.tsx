@@ -5,12 +5,13 @@ import dayjs from "dayjs"
 import { useRoute } from "@react-navigation/native"
 
 import { api } from "../../lib/axios"
+import { generateProgressPercentage } from "../../utils/generate-progress-percentage"
 
 import { BackButton } from "../../components/BackButton"
 import { ProgressBar } from "../../components/ProgressBar"
 import { Checkbox } from "../../components/Checkbox"
 import { Loading } from "../../components/Loading"
-import { generateProgressPercentage } from "../../utils/generate-progress-percentage"
+import { HabitsEmpty } from "../HabitsEmpty"
 
 interface HabitParams {
   date: string
@@ -97,7 +98,7 @@ export function Habit() {
         <ProgressBar progress={habitsProgress} />
 
         <View className="mt-6">
-          {dayInfo?.possibleHabits &&
+          {dayInfo?.possibleHabits ? (
             dayInfo?.possibleHabits.map((habit) => (
               <Checkbox
                 key={habit.id}
@@ -105,7 +106,10 @@ export function Habit() {
                 checked={completedHabits.includes(habit.id)}
                 onPress={() => handleToggleHabit(habit.id)}
               />
-            ))}
+            ))
+          ) : (
+            <HabitsEmpty />
+          )}
         </View>
       </ScrollView>
     </View>
