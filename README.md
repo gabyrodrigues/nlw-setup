@@ -1,10 +1,4 @@
-<h1 align="center"> Habits </h1>
-
-<p align="center">
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-</p>
+<h1 align="center">Habits</h1>
 
 <p align="center">
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
@@ -59,8 +53,7 @@ $ npm install
 # Iniciando server do mobile
 $ npx expo start
 ```
-
-## ⚙️👨‍💻 Tecnologias
+## ⚙️ Tecnologias
 
 A aplicação Habits utiliza-se das seguintes tecnologias para o seu desenvolvimento:
 
@@ -86,10 +79,6 @@ A aplicação Habits utiliza-se das seguintes tecnologias para o seu desenvolvim
   <a href= "https://eslint.org/"><img alt="code standardization eslint" src="https://img.shields.io/static/v1?logoWidth=15&logoColor=4B32C3&logo=ESLint&label=Code Standardization&message=ESLint&color=4B32C3"></a>
 </p>
 
-### Diagrama Prisma back-end
-
-![diagrama db](https://raw.githubusercontent.com/gabyrodrigues/nlw-setup/main/server/prisma/ERD.svg)
-
 ## 💻 Projeto
 
 Projeto fullstack de app de monitoramento de hábitos com calendário mostrando hábitos por dia com tonalidades de cores diferentes para identificar a conclusão de hábitos a cada dia. Possibilidade de criação e edição de conclusão de hábitos diariamente.
@@ -97,15 +86,17 @@ Projeto fullstack de app de monitoramento de hábitos com calendário mostrando 
 Possui as funcionalidades de:
 
 - Calendário interativo com identificação de dia atual;
-- Identificação de conclusão de hábitos nos dias, quanto mais azul menos hábitos concluídos no dia;
+- Identificação de conclusão de hábitos nos dias, quanto mais roxo menos hábitos concluídos no dia;
 - Possibilidade de criação de novos hábitos marcando os dias que o mesmo será monitorado;
 - Edição (toggle) de hábitos por dia entre concluído e a concluir.
-- Barra de progresso de hábitos por dia. Concluídos Vs a concluir.
+- Barra de progresso de hábitos por dia. Concluídos vs. a concluir.
+
+![diagrama db](https://raw.githubusercontent.com/gabyrodrigues/nlw-setup/main/server/prisma/ERD.svg)
 
 ## 🔖 Layout
 
-Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/community/file/1195327109778210238). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
+Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/community/file/1195326661124171197). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
 
 ---
 
-Feito com ♥ by Rocketseat :wave: [Participe da nossa comunidade!](https://discord.gg/rocketseat)
+Feito com ♥ by Rocketseat :wave:
